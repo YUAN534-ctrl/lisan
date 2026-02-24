@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>离散接触力学 · 研究分支</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background: #f0f2f5;
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin: 0 0 30px 0;
+            font-size: 28px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        /* 根节点 */
+        .root-node {
+            border: 3px solid #1e3c72;
+            border-radius: 16px;
+            padding: 18px 30px;
+            background: #d4e6f1;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            color: #0b2b4a;
+        }
+        /* 分支行：flex 水平排列四个分支 */
+        .branches-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px 10px;
+            margin-top: 20px;
+        }
+        /* 每个分支列 */
+        .branch-col {
+            flex: 1 1 220px;
+            min-width: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: #fdfdfd;
+            border-radius: 16px;
+            padding: 15px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        /* 分支标题 */
+        .branch-title {
+            border: 2px solid #2980b9;
+            border-radius: 30px;
+            padding: 12px 8px;
+            background: #ebf5fb;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1a5276;
+        }
+        /* 子节点容器（纵向排列） */
+        .child-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        /* 每个子节点：包含箭头和文本框 */
+        .child-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+        .arrow-symbol {
+            font-size: 22px;
+            color: #e67e22;
+            font-weight: bold;
+            line-height: 1.4;
+            min-width: 28px;
+            text-align: right;
+        }
+        .child-node {
+            border: 2px solid #5d6d7e;
+            border-radius: 10px;
+            padding: 10px 12px;
+            background: #f9f9f9;
+            font-size: 16px;      /* 四号字 */
+            line-height: 1.5;
+            flex: 1;
+            color: #1e2b37;
+            word-break: break-word;
+        }
+        /* 更深一层（如1.1.1）用缩进表示 */
+        .sub-child {
+            margin-left: 34px;      /* 与箭头对齐 */
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .sub-child .child-item {
+            margin-left: 0;
+        }
+        /* 小节分割线 */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ccc, transparent);
+            margin: 15px 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🌲 离散接触力学研究分支（纵向）</h1>
+
+    <!-- 根节点 -->
+    <div class="root-node">离散接触力学研究分支</div>
+
+    <!-- 四个分支列 -->
+    <div class="branches-row">
+        <!-- 分支1：问题边界维度 -->
+        <div class="branch-col">
+            <div class="branch-title">问题边界维度</div>
+            <div class="child-list">
+                <!-- 1.1 接触区域特性 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">接触区域特性</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">有界名义接触区域（有限压头系统，如医疗器械、机器人部件）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">周期接触区域（无限压头周期排布，如规则纹理表面）</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- 1.2 附加作用边界 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">附加作用边界</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">无摩擦/有摩擦（部分滑移/全滑移）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">粘附作用（JKR/DMT/Maugis-Dugdale模型）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">间隙介质（液体/气体，如润滑接触、范德华气体）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分支2：求解方法维度 -->
+        <div class="branch-col">
+            <div class="branch-title">求解方法维度</div>
+            <div class="child-list">
+                <!-- 2.1 解析方法 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">解析方法</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">复变函数法（Muskhelishvili法，平面接触）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">实变函数法（Shtayerman法，平面接触）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">局域化方法（近场精确+远场等效，周期接触）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">渐近匹配展开法（Argatov法，小接触区问题）</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- 2.2 数值方法 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">数值方法</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">有限元法/边界元法（弹塑性、粘弹性接触）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">牛顿-拉夫逊迭代法（非线性方程组求解）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">快速傅里叶变换（FFT，周期接触高效计算）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分支3：材料特性维度 -->
+        <div class="branch-col">
+            <div class="branch-title">材料特性维度</div>
+            <div class="child-list">
+                <!-- 3.1 弹性材料 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">弹性材料（核心基础，全文重点）</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">均质弹性体（半空间/平面）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">非均质弹性体（涂层、复合材料）</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- 3.2 弹塑性材料 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">弹塑性材料（6.1节）</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">滑移线法（Childs法，理想塑性）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">有限元法（弹塑性耦合，如波纹表面压缩）</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- 3.3 粘弹性材料 -->
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">粘弹性材料（6.2节）</div>
+                </div>
+                <div class="sub-child">
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">Maxwell/Kelvin模型（薄层粘弹性体）</div>
+                    </div>
+                    <div class="child-item">
+                        <span class="arrow-symbol">→</span>
+                        <div class="child-node">循环变形能量耗散（摩擦系数计算）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分支4：应用场景维度 -->
+        <div class="branch-col">
+            <div class="branch-title">应用场景维度</div>
+            <div class="child-list">
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">表面工程（纹理设计、减摩抗磨）</div>
+                </div>
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">生物力学（夹持工具-生物组织接触）</div>
+                </div>
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">微纳技术（MEMS器件离散接触可靠性）</div>
+                </div>
+                <div class="child-item">
+                    <span class="arrow-symbol">→</span>
+                    <div class="child-node">润滑工程（间隙介质对接触特性的影响）</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="text-align:center; color:#7f8c8d; margin-top:30px;">→ 箭头表示父节点到子节点的指向，缩进表示层级关系 ←</p>
+</div>
+</body>
+</html>
